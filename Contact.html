@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+    <title>Contact</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 17px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111111;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Style for custom message box */
+        #messageBox {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 20px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center;">Dominic's Website</h1>
+
+<ul>
+    <li><a href="Home.html">Home</a></li>
+    <li><a href="Portfolio.html">Portfolio</a></li>
+    <li class="dropdown">
+        <a href="About Me.html" class="dropbtn">About Me</a>
+        <div class="dropdown-content">
+            <a href="Inspiration and Goals.html">Inspiration and Goals</a>
+            <div class="dropdown-content">
+            <a href="Social Media.html">Social Media</a>
+            <div class="dropdown-content">
+                <a href="Submissions.html">Submissions</a>
+        </div>
+    </li>
+    <li><a href="Contact.html">Contact</a></li>
+</ul>
+
+<h2 style="text-align: center;">Contact</h2>
+<br>
+<br>
+
+<br>
+<h3 style="text-align: left;">Use of Art and Commissions</h3>
+<p>Before using any of my art for projects, business, personal use, etc., you must first<br>
+submit a request for permission. You must leave your name, email, and reason for the request.<br>
+If you wish to commission something, you would follow the same process, but you will leave details of your commission instead.<br> 
+If needed, I will contact you for more details or if I have any questions. You can do the same by contacting me via Instagram or emailing me.</p>
+<br>
+<h3 style="text-align: left;">Permission and Commission Request</h3>
+<br>
+<form id="contactForm" action="/submit-form" method="POST">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname"><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br><br>
+    <label for="commission">Permission or Commission:</label><br>
+    <textarea name="commission" id="commission" rows="15" cols="80"></textarea><br><br>
+    <button type="submit" id="submitBtn">Submit</button>
+</form>
+
+<!-- Custom message box -->
+<div id="messageBox">
+    <p>Thank you for your submission. I'll get to it soon!</p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    const form = document.getElementById('contactForm');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault(); // Prevents default form submission
+
+        // Shows custom-made message box
+        const messageBox = document.getElementById('messageBox');
+        messageBox.style.display = 'block';
+
+        // Hides message box after 3 seconds and redirectss to the "Home"
+        setTimeout(() => {
+            messageBox.style.display = 'none';
+            window.location.href = 'Home.html'; // This redirects to the home page
+        }, 3000);
+    });
+});
+</script>
+
+</body>
+</html>
